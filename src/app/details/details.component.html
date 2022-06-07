@@ -1,0 +1,66 @@
+
+<div class="navbar nav">
+  <img src="https://gyansys.com/images/logos/gyansys-logo-black.png" alt="" width="300px" style="margin-top: 30px;">
+  <strong style="margin-top: 120px; margin-right: 50px;">GYANSYS INFOTECH PRIVATE LIMITED</strong>
+</div>
+<hr class="border border-dark">
+
+
+
+<div class="container" style="width: 50%;">
+<h1><u>Visa Details</u></h1>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td><input type="text" class="form-control form-control-lg" style="margin-top: 20px;" ></td>
+    </tr>
+    <tr>
+      <th>Employee ID</th>
+      <td><input type="text" class="form-control form-control-lg" style="margin-top: 20px;" ></td>
+    </tr>
+  </tbody>
+</table>
+
+<form [formGroup]="orderForm">
+ 
+ <div formArrayName="details">
+  <div *ngFor="let item of details().controls; let i=index" [formGroupName]="i">
+    <h1 style="text-align: center; margin-top: 80px;"><u>Visa Details-{{i+1}}</u></h1>
+  
+<table class="table table-bordered">
+  
+  <tbody>
+    <tr> 
+      <th>Country Name</th>
+      <td><input type="text" formControlName="CountryName" class="form-control form-control-lg" style="margin-top: 20px;" ></td>
+    </tr>
+    <tr>
+      <th>Visa Type</th>
+      <td><input type="text" formControlName="VisaType" class="form-control form-control-lg" style="margin-top: 20px;" ></td>
+    </tr>
+    <tr>
+      <th>Expiry Date(DD-MM-YY)</th>
+      <td><input type="date" formControlName="ExpiryDate" class="form-control form-control-lg" style="margin-top: 20px;" ></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div style="float: right;">
+    <button (click)="removeDetails(i)" class="btn btn-danger">Remove</button>
+</div>
+
+</div>
+</div>
+<div>
+  <button type="button" class="btn btn-primary " (click)="addDetails()">Add Visa Details</button>
+</div>
+</form>
+
+<div class="d-grid gap-2 col-3 mx-auto">
+ <button class="button" type="submit" class="btn btn-primary btn-lg btn-block mt-5">Submit</button>
+</div>
+</div>
+
